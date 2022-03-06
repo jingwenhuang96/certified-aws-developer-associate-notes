@@ -13,7 +13,7 @@ When accessing AWS, the root account should **never** be used. Users must be cre
 - IAM Federation: Integrate their own repository of users with IAM using SAML standard
 
 ### Policies
-IAM policies define permissions for an action regardless of the method that you use to perform the operation.
+IAM policies define permissions for an action regardless of the method that you use to perform the operation. Instance are region-sepecific, but the IAM is global, no matter which region the instances are. 
 
 #### Policy types
 - Identity-based policies
