@@ -50,3 +50,8 @@ IAM policies define permissions for an action regardless of the method that you 
 - Never write IAM credentials in your code. **EVER**
 - Never use the ROOT account except for initial setup
 - It's best to give users the minimal amount of permissions to perform their job
+
+
+#### Quiz
+- Which is the best way to enable S3 read-access fro an EC2 instance?
+-- Create an IAM role with read-access to S3 and assign the role to the EC2 instance
