@@ -2,10 +2,10 @@
 
 - MFA: setup virtial MFA device, such as Google Authenticator. 
 
-When accessing AWS, the root account should **never** be used. Users must be created with the proper permissions. IAM is central to AWS.
-- Users: A physical person; 
-- Groups: Functions (admin, devops) Teams (engineering, design) which contain a group of users under one set of permissions.
-- Roles: Internal usage within AWS resources; 
+When accessing AWS, the root account should **never** be used. Users must be created with the proper permissions. IAM is central to AWS. We can customize the passwords policy for users. 
+- Users: A physical person; access type includes Programmatic access and AWS management console access. 
+- Groups: Functions (admin, devops) Teams (engineering, design) which contain a group of users under one set of permissions. 
+- Roles: Internal usage within AWS resources; create role (select the services that the roles are attached to) .
 - Policies (JSON documents): Defines what each of the above can and cannot do.  **Note**: IAM has predefined managed policies.
 
 
