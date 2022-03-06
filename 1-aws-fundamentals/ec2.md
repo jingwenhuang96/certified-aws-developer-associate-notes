@@ -117,6 +117,10 @@ If your machine is stopped and then restarted, the public IP will change
     - X seconds (X > 60), it costs $0.023 * X / 3600 
   - The best way to know the pricing is to consult the pricing page: https://aws.amazon.com/ec2/pricing/on-demand/
 
+## EC2 Key Pair
+- Create a new key pair, and download it to local. 
+- Connect EC2 instance using SSH: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+
 ## AMIs
 ### What's AMI?
 - As we saw, AWS comes with base images such as:
