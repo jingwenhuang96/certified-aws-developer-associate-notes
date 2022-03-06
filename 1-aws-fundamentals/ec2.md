@@ -35,13 +35,20 @@ If your machine is stopped and then restarted, the public IP will change
 * URL: {ec2-ip-address}/latest/meta-data
 
 ## EC2 Instance Launch Types 
-- **On Demand Instances**: short workload, predictable pricing
-- **Reserved Instances**: long workloads (>= 1 year)
-- **Convertible Reserved Instances**: long workloads with flexible instances
-- **Scheduled Reserved Instances**: launch within time window you reserve
-- **Spot Instances**: short workloads, for cheap, can lose instances
+- **On Demand Instances**: short workload,  most flexible
+- **Reserved Instances**: long workloads (>= 1 year), predictable pricing, Pay up-front
+- **Convertible Reserved Instances**: long workloads with flexible instances, get option to change the instance types. 
+- **Scheduled Reserved Instances**: launch within time window you reserve, a predicatable and recurring schedule. 
+- **Spot Instances**: short workloads, for cheap, can lose instances, applications that have flexible start and end times. 
 - **Dedicated Instances**: no other customers will share your hardware
-- **Dedicated Hosts**: book an entire physical server, control instance placement
+- **Dedicated Hosts**: book an entire physical server, control instance placement, requirements on compliance and licensing. 
+
+### Savings plans: 
+- All AWS compute usage regardless of instance type or Region
+- Commit to use a specific amount of compute power (measured in $/hour) for a one-year to three-year period. 
+- super flexible: not only EC2, but also severless technologies like Lambda and Fargate
+- useful tools: AWS pricing calculator. 
+
 
 #### On Demand Instance:
 * Pay for what you use
@@ -52,7 +59,7 @@ If your machine is stopped and then restarted, the public IP will change
 * Up to 75% compared to On-demand
 * Pay upfront for what you use with long term commitment
 * Reservation period can be 1 or 3 years
-* Reserve a specific instance type
+* Reserve a specific instance 
 * Recommended for steady state usage applications (think database)
 #### Convertible Reserved Instances
 * Can change the EC2 instance type
@@ -86,11 +93,15 @@ If your machine is stopped and then restarted, the public IP will change
 - Spot instances: the hotel allows people to bid for the empty rooms and the highest bidder keeps the rooms.You can get kicked out at any time 
 - Dedicated Hosts: We book an entire building of the resort
 
+## EC2 Instance Types:
+- Hardware, Capabilities, Application Requirements. Each instance type offers different compute, memory, and storage capabilities. They are grouped in instance families.
+- Select an instance type based on the requirements of your application.
+
 ## EC2 Pricing
 - EC2 instances prices (per hour) varies based on these parameters:
   - Region you’re in
   - Instance Type you’re using
-  - On-Demand vs Spot vs Reserved vs Dedicated Host
+  - On-Demand (Pay by the hour or second) vs Spot (purchase unsued capacity) vs Reserved (for one to three years in specific region) vs Dedicated Host (most expensive)
   - Linux vs Windows vs Private OS (RHEL, SLES, Windows SQL)
   - You are billed by the second, with a minimum of 60 seconds. 
   - You also pay for other factors such as storage, data transfer, fixed IP public addresses, load balancing
