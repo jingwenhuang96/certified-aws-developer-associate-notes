@@ -1,6 +1,7 @@
 # Route 53
-
-Route 53 is a managed DNS (Domain Name System)
+ 
+Route 53 is a managed DNS (Domain Name System) 
+- Alows you to map a domain name that you own to EC2 instance, load balancer, S3 buckets. 
 
 DNS is a collection of rules and records which helps clients understand how to reach a server through URLs.
 
