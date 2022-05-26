@@ -5,6 +5,7 @@
 * Sometimes, you need a way to store your instance data somewhere
 * An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run
 * It allows your instances to persist data
+* At least one EBS is attached to EC2 when instance launches, and it used to install operating system. You could add more EBS to add application, data and so on. 
 
 #### EBS Volume
 * It’s a network drive (Not a physical drive)
@@ -13,16 +14,24 @@
 * It’s locked to an Availability Zone (AZ)
     * An EBS Volume in us-east-1a cannot be attached to us-east-1b
     * To move a volume across, you first need to snapshot it
+    * Alternatively replicate in the same AZ. 
 * Have a provisioned capacity (size in GBs and IOPs)
     * You get billed for all the provisioned capacity
     * You can increase the capacity of the drive over time
 
+#### IOPS vs Throughput
+* IOPS: measures number of read and write operations per second. Important metric for quick transactions, low latency apps, transactional workloads. The ability to action reads and writes very quickly. 
+  - Provisioned IOPS SSD (IO1 or IO2)
+* Throughput: measures the number of bits read or written per second (MB/s). Important metric for large datasets, large I/O size, complex queries. The ability to deal with large datasets. 
+  - Throughput Optimized HDD (ST1). 
+
 #### EBS Volume Types
 - EBS Volumes come in 4 types 
 - GP2 (SSD): General purpose SSD volume that balances price and performance for a wide variety of workloads 
-- - SSD: A solid-state drive is a solid-state storage device that uses integrated circuit assemblies to store data persistently, typically using flash memory, and functioning as secondary storage in the hierarchy of computer storage
+  - SSD: A solid-state drive is a solid-state storage device that uses integrated circuit assemblies to store data persistently, typically using flash memory, and functioning as secondary storage in the hierarchy of computer storage
 - IO1 (SSD): Highest-performance SSD volume for mission-critical low-latency or high- throughput workloads 
 - ST1 (HDD): Low cost HDD volume designed for frequently accessed, throughput- intensive workloads 
+  - HDD: A hard disk drive, hard disk, hard drive, or fixed disk is an electro-mechanical data storage device that stores and retrieves digital data using magnetic storage and one or more rigid rapidly rotating platters coated with magnetic material. 
 - SC1 (HDD): Lowest cost HDD volume designed for less frequently accessed workloads 
 - EBS Volumes are characterized in Size | Throughput | IOPS
 - When in doubt always consult the AWS documentation
@@ -35,24 +44,34 @@
 - Virtual desktops
 - Low-latency interactive apps
 - Development and test environments
+- Good for boot volumes or deployment and test application which are not latency sensitive.
+   - GP3: latest version for General purpose. 
 
-2. IO1
+2. IO1 [Provisioned IOPS SSD]
 - Critical business applications that require sustained IOPS performance, or more than 16,000 IOPS per volume (gp2 limit)
 -  Large database workloads, such as: MongoDB, Cassandra, Microsoft SQL Server, MySQL, PostgreSQL, Oracle
+-  High performation option and most expensive. 
+-  For I/O instensive application, latensy sensitive
+   - IO2: latest generation for provisioned IOPS. More IOPS and higher durability than IO1, with same price. 
+   - IO2 Block Express: SAN (Storage Area Network) in the cloud: highest performance, sub-millisecond latency. Same durability with IO2. 
 
-3. ST1
-- Streaming workloads requiring consistent, fast throughput at a low price. 
-- Big data, Data warehouses, Log processing
+3. ST1 [Throughput Optimized HDD]
+- Streaming workloads requiring consistent, fast throughput at a low price. Frequently-accessed, throughput-intensive workloads. 
+- Big data, Data warehouses, Log processing, ETL, and log processing. 
+- Low-cost HDD volume
 - Apache Kafka
  - Cannot be a boot volume
  
-4. SC1
+4. SC1 [Cold HDD]
 - Throughput-oriented storage for large volumes of data that is infrequently accessed
-- Scenarios where the lowest storage cost is important
+- Scenarios where the **lowest storage cost** is important
 - Cannot be a boot volume
+- Good choice for colder data
+- Application not require good performance; less frequently-accessed data. 
 
 #### EBS Volume Types Summary
 - gp2: General Purpose Volumes (cheap)
+- gp3: the latest generation. 
 - io1: Provisioned IOPS (expensive)
 - st1: Throughput Optimized HDD
 - sc1: Cold HDD, Infrequently accessed data
@@ -60,6 +79,7 @@
 #### EBS Volume Resizing
 * Feb 2017: You can resize your EBS Volumes
 * After resizing an EBS volume, you need to repartition your drive
+* Highly scalable.
 
 EBS Snapshots
 * EBS Volumes can be backed up using “snapshots”
@@ -82,6 +102,7 @@ EBS Snapshots
 * Encryption has a minimal impact on latency
 * EBS Encryption leverages keys from KMS (AES-256)
 * Copying an unencrypted snapshot allows encryption
+* If the EBS volume is unencrypted, then the snapshot is also unencrypted. 
 
 #### EBS vs. Instance Store
 * Some instance do not come with Root EBS volumes
