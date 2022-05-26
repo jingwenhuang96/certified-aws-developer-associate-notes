@@ -20,6 +20,7 @@
 #### EBS Volume Types
 - EBS Volumes come in 4 types 
 - GP2 (SSD): General purpose SSD volume that balances price and performance for a wide variety of workloads 
+- - SSD: A solid-state drive is a solid-state storage device that uses integrated circuit assemblies to store data persistently, typically using flash memory, and functioning as secondary storage in the hierarchy of computer storage
 - IO1 (SSD): Highest-performance SSD volume for mission-critical low-latency or high- throughput workloads 
 - ST1 (HDD): Low cost HDD volume designed for frequently accessed, throughput- intensive workloads 
 - SC1 (HDD): Lowest cost HDD volume designed for less frequently accessed workloads 
