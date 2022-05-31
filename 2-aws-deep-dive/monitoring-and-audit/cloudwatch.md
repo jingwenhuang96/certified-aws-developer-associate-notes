@@ -61,6 +61,7 @@ CloudWatch is used for monitoring.
 - Metrics have **timestamps** ; each data point have timestamps
 - Can create CloudWatch dashboards of metrics
     - to display metrics in one places
+    - could create a global dashboard where aggregated all regions' dashboards
 
 ### CloudWatch EC2 Detailed monitoring
 - EC2 instance metrics have metrics “every 5 minutes”; for additional charge, could send metrics with 1 minute interval. 
