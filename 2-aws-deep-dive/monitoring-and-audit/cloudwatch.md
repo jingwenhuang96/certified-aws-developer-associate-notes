@@ -72,7 +72,7 @@ CloudWatch is used for monitoring.
 - **Note:** EC2 Memory usage is by default not pushed (must be pushed
 from inside the instance as a custom metric)
 
-#### Host-level metrics
+### Host-level metrics vs OS-level metrics
 - Default EC2 host-level metrics: CPU, network, disk, and status check
 - Use the CW agent for OS-level metrics ike memory usage, processes, and CPU idle time.
 
