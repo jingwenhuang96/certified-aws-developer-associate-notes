@@ -27,15 +27,18 @@ CloudWatch is used for monitoring.
 
 ### Monitoring in AWS
 - AWS CloudWatch:
+    - All about performance and metrics, logs, and alarms of AWS resources. 
     - Metrics: Collect and track key metrics
     - Logs: Collect, monitor, analyze and store log files
     - Events: Send notifications when certain events happen in your AWS • Alarms: React in real-time to metrics / events
 - AWS X-Ray:
     - Troubleshooting application performance and errors
     - Distributed tracing of microservices
-- AWS CloudTrail:
+- AWS CloudTrail (Audit Trails):
     - Internal monitoring of API calls being made
-    - Audit changes to AWS Resources by your users
+    - Audit changes (create, modify, delete, failed login) to AWS Resources by your users
+    - Record last 90 days activity
+    - Delivers log files containing API calls to an S3 objects; can be integrated with CW logs. 
 
 ### CloudWatch Agent
 - By installing the CW agent on your EC2 instances, you can collect OS metrics and send them to CW. 
