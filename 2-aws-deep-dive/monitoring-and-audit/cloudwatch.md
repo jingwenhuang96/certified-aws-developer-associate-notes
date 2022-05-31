@@ -131,3 +131,7 @@ from inside the instance as a custom metric)
 - Triggers to Lambda functions, SQS/SNS/Kinesis Messages
 - CloudWatch Event creates a small JSON document to give information
 about the change
+
+### The CW Action/API
+- PutMetricData: publish metric data points to CW
+- PutMetricAlarm: creates an alarm associated with a  metric to alert you if a threshold has been reached. 
