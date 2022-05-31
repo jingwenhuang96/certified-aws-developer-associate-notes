@@ -1,6 +1,11 @@
 # CloudWatch
 
 CloudWatch is used for monitoring.
+### CW Could monitor
+- Compute: Ec2, ASG, ELB, Route53, Lambda
+- Storage: EBS, Storage Gateway, CloudFront
+- Database: DDB, RDS, RS, EMR
+- Other: SQS, SNS, API gateway, charges. 
 
 ### Why is monitoring important?
 - To deploy applications
@@ -32,6 +37,15 @@ CloudWatch is used for monitoring.
     - Internal monitoring of API calls being made
     - Audit changes to AWS Resources by your users
 
+### CloudWatch Agent
+- By installing the CW agent on your EC2 instances, you can collect OS metrics and send them to CW. 
+- Demo 
+  - Launch an EC2 instance: attach an IAM role with permissions to send CW agent metrics to CW
+     - Role: CloudWatchAgentServerPolicy - permission to send metrics to CW
+  - Install CW Agent: Configure the agent to send OS metrics and logs to CW
+     - run cmd to install, configure, configuration validations, restart
+  - View Metrics in CW: we should be able to see the EC2 default metrics and well as the metrics and logs send by the CW Agent. 
+
 ### CloudWatch Metrics
 - CloudWatch provides metrics for every services in AWS
 - **Metric** is a variable to monitor (CPUUtilization, NetworkIn...)
@@ -42,14 +56,20 @@ CloudWatch is used for monitoring.
 - Can create CloudWatch dashboards of metrics
 
 ### CloudWatch EC2 Detailed monitoring
-- EC2 instance metrics have metrics “every 5 minutes”
+- EC2 instance metrics have metrics “every 5 minutes”; for additional charge, could send metrics with 1 minute interval. 
+- All EC2 instances send key health and performance metrics to CW. Could retrieve data even EC2 terminated. 
 - With detailed monitoring (for a cost), you get data “every 1 minute”
 - Use detailed monitoring if you want to more prompt scale your ASG!
 - The AWS Free Tier allows us to have 10 detailed monitoring metrics
 - **Note:** EC2 Memory usage is by default not pushed (must be pushed
 from inside the instance as a custom metric)
 
-### AWS CloudWatch Custom Metrics
+#### Host-level metrics
+- Default EC2 host-level metrics: CPU, network, disk, and status check
+- Use the CW agent for OS-level metrics ike memory usage, processes, and CPU idle time.
+
+
+### AWS CloudWatch Custom Metrics - use CW Agent
 - Possibility to define and send your own custom metrics to CloudWatch
 - Ability to use dimensions (attributes) to segment metrics
     - Instance.id
@@ -63,6 +83,7 @@ from inside the instance as a custom metric)
 ### Alarms are used to trigger notifications for any metric
 - Alarms can go to Auto Scaling, EC2 Actions, SNS notifications
 - Various options (sampling, %, max, min, etc...)
+- Set thresholds
 - Alarm States:
     - OK
     - INSUFFICIENT_DATA
