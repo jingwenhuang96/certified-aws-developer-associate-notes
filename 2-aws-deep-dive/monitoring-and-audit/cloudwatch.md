@@ -45,15 +45,19 @@ CloudWatch is used for monitoring.
   - Install CW Agent: Configure the agent to send OS metrics and logs to CW
      - run cmd to install, configure, configuration validations, restart
   - View Metrics in CW: we should be able to see the EC2 default metrics and well as the metrics and logs send by the CW Agent. 
+     - EC2 -> metric per instance -> CW Agent -> CPU Utilization
 
 ### CloudWatch Metrics
 - CloudWatch provides metrics for every services in AWS
-- **Metric** is a variable to monitor (CPUUtilization, NetworkIn...)
-- Metrics belong to **namespaces**
-- **Dimension** is an attribute of a metric (instance id, environment, etc...).
-- Up to 10 dimensions per metric
-- Metrics have **timestamps**
+- **Metric** is a variable to monitor (CPUUtilization, NetworkIn...); Time-ordered sequence of values or data points
+- Metrics belong to **namespaces** ; namespace is a container of metrics. 
+   - Create your own namespace to publish custom metric data
+- **Dimension** is an attribute of a metric (such as filter with instance id, environment, etc...). 
+    - Up to 10 dimensions per metric
+    - Could be used to filter CW data
+- Metrics have **timestamps** ; each data point have timestamps
 - Can create CloudWatch dashboards of metrics
+    - to display metrics in one places
 
 ### CloudWatch EC2 Detailed monitoring
 - EC2 instance metrics have metrics “every 5 minutes”; for additional charge, could send metrics with 1 minute interval. 
@@ -114,6 +118,7 @@ from inside the instance as a custom metric)
 - Using the AWS CLI we can tail CloudWatch logs
 - To send logs to CloudWatch, make sure IAM permissions are correct!
 - Security: encryption of logs using KMS at the Group Level
+
 
 ### AWS CloudWatch Events
 - Schedule: Cron jobs
