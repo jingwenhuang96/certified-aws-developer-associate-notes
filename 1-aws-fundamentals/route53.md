@@ -5,6 +5,16 @@ Route 53 is a managed DNS (Domain Name System)
 
 DNS is a collection of rules and records which helps clients understand how to reach a server through URLs.
 
+Steps to use route53 to direct traffic to load balancer:
+- Register domain name
+- Resgiter EC2 instances
+  - configure instance: install httpd
+  - security group: http
+  - create load balancer - application load balancer; HTTP; configure routing; register targets. 
+- copy the DNS of load balancer: the address is not easy to remember as website; that is why use route53
+- Route53 
+  - hosted zone: create map between DNS of load balancer and domain name. 
+
 In AWS, the most common records are (will be on exam):
 * A: URL to IPv4
 * AAAA: URL to IPv6
