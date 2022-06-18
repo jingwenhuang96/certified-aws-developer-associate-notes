@@ -16,6 +16,7 @@
     - [ElastiCache](1-aws-fundamentals/elasticache.md)
     - [VPC: Virtual Private Cloud](1-aws-fundamentals/vpc.md)
     - [S3 Buckets](1-aws-fundamentals/s3.md)
+    - [CloudFront](1-aws-fundamentals/cloudfront.md)
 
 - AWS Deep Dive
     - [CLI: Command Line Interface](2-aws-deep-dive/cli.md)
