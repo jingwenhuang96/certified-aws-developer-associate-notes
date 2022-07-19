@@ -54,7 +54,8 @@
 
 
 ## Exam Preparation
-
+- Region: us-east-1, us-east2
+- AZs: us-east-1a, us-east-1b, us-east-1c
 - Exam details
     - Two question types:
         - Multiple Choice
