@@ -55,3 +55,4 @@ IAM policies define permissions for an action regardless of the method that you 
 #### Quiz
 - Which is the best way to enable S3 read-access fro an EC2 instance?
 -- Create an IAM role with read-access to S3 and assign the role to the EC2 instance
+-- By default, the IAM user will have no access to the billing info; you can activate the access to billing in root account. 
